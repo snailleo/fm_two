@@ -1,0 +1,214 @@
+<html>
+<head _wxlaelhepjgkhpnfpeodbobgikmbjecnne_="shake_1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>发布活动</title>
+<link type="text/css" href="css/active.css" rel="stylesheet" />
+<link type="text/css" href="css/base.css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+
+<body>
+<!--头部-->
+<div class="Top">
+	<div class="TopMain">
+		<div class="topLogo1"></div>
+		<div class="topMDleft">
+			<a>
+			<font><i></i>小花<span>(100000)</span></font>
+			</a>
+			<a style="color:#b1b1b1;margin-left: 20px;">退出</a>
+		</div>
+	</div>
+</div>
+<div class="hr_25"></div>
+<div class="orderMain">
+	<!--左侧列表-->
+	<div class="ltMainNav lt">
+		<dl>
+			<dt class="leftIco1">平台管理</dt>
+			<dd>产品分类设置</dd>
+			<dd>推荐位设置</dd>
+			<dd>短信系统设置</dd>
+		</dl>
+		<dl>
+			<dt class="leftIco2">资源管理</dt>
+			<dd>产品管理</dd>
+            <dd>企业管理</dd>
+		</dl>
+		<dl>
+			<dt class="leftIco3">订单管理</dt>
+			<dd>订单列表</dd>
+			<dd class="selected">收款账号设置</dd>
+		</dl>
+	</div>
+    <!--宿回伸开ltNav_pop-->
+    <div class="ltMain_pop" style="display: block;"></div>
+<!--右侧内容-->
+<div class="rtMainCon">
+    <div class="rtMain_Frame">
+    <!--通用头部-->
+        <div class="pubTit" >
+            <ul>
+                <li class="lt">
+                	<h2 class="nav_page">发布活动</h2>
+                </li>
+            </ul>
+        </div>
+        <div class="userzhanghao h_active">
+        	<P>第一步：活动基本信息》第二步：高级设定</p>
+        </div>
+        <div class="breadcrumb">
+            <div class="userEditor">
+                <ul>
+                	<!--第一步-->
+                    <li>
+                        <div class="field"><span class="redStart">&nbsp;*</span>活动名称：</div>
+                        <div class="tex">
+                            <input type="text" id="name" name="name" size="40" value="" class="tex" autocomplete="off">
+                        </div>
+                        <div class="word_tip02">&nbsp;&nbsp;不超过20个汉字</div>
+                    </li>
+                    <li style="min-width:1100px;" class="odd">
+                       <div class="field"><span class="redStart">&nbsp;*</span>报名时间：</div>
+                        <div class="tex">
+                            <input type="text" id="markedPrice" name="markedPrice" size="40" value="开始时间" class="tex" autocomplete="off">
+                        </div>
+                        <div class="tex">
+                            <input type="text" id="markedPrice" name="markedPrice" size="40" value="截止时间" class="tex" autocomplete="off">
+                        </div>
+                        <div style="clear:both;"></div>
+                    </li>
+                    <li>
+                        <div class="field">活动时间：</div>
+                        <div class="tex">
+                            <input type="text" id="markedPrice" name="markedPrice" size="40" value="开始时间" class="tex" autocomplete="off">
+                        </div>
+                        <div class="tex">
+                            <input type="text" id="markedPrice" name="markedPrice" size="40" value="截止时间" class="tex" autocomplete="off">
+                        </div>
+                        <div style="clear:both;"></div>
+                    </li>
+                    <li class="odd">
+                        <div class="field"><span class="redStart">&nbsp;*</span>活动图片：</div>
+                        <div class="active_img"><img src="images/m_pic01.png" width="100" height="100" /></div>
+                        <div class="active_add"><input type="submit" value="添 加" class="btn yellowBtn" id="subT"></div>
+                        <div style="clear:both;"></div>
+                    </li>
+                    <li style="border-bottom:1px dashed #cecece;">
+                        <div class="field"><span class="redStart">&nbsp;*</span>详细介绍：</div>
+                        <div id="myEditor"><img src="images/eidate.png" /></div>
+                    </li>
+                    <!--           第一步完           -->
+                </ul>
+           </div>
+       </div>
+       <!--第二步-->
+       <div class="activeTwo">
+            <h1><input type="checkbox" class="check_show" /><span>进入高级设置</span></h1>
+            <div class="active_box">
+                <dl>
+                    <dt>报名人数：</dt>
+                    <dd>
+                        <div class="active_tex">
+                            <input type="text" id="name" name="name" size="40" value="" class="tex" autocomplete="off">              			   						    </div>
+                        <div class="word_tip03">&nbsp;&nbsp;请输入正整数</div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>报名费用：</dt>
+                    <dd>
+                        <div class="active_tex">
+                            <input type="text" id="name" name="name" size="40" value="" class="tex" autocomplete="off">              			   						 </div>
+                        <div class="word_tip03">&nbsp;&nbsp;请输入正整数</div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>报名表单：</dt>
+                    <dd>
+                        <div class="active_form">
+                        	<p>选择系统字段</p>
+                            <ul class="active_ul">
+                            	<li><input type="checkbox" />&nbsp;会员ID</li>
+                                <li><input type="checkbox" />&nbsp;手机号</li>
+                                <li><input type="checkbox" />&nbsp;姓名/昵称</li>
+                                <li><input type="checkbox" />&nbsp;联系地址</li>
+                            </ul>
+                            <table width="100%" border="0" class="active_table dis" cellpadding="0" cellspacing="0">
+                            </table>
+                            <input type="button" value="添加自定字段" class="form_add" />
+                        </div>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>内容关联：</dt>
+                    <dd>
+                        <div class="active_tex">
+                          <select style="border:none;height:26px;width:150px;color:#999;">
+                            	<option>选择关联内容</option>
+                            </select>            			   						
+                        </div>
+                      <div style="float:left;margin-left:10px;"><input type="button" value="选择内容"  class="active_choes" /></div>
+                    </dd>
+                </dl>
+                <div style="clear:both;margin-left:62px;margin-top:40px;">
+                    <table width="97%" border="0" cellpadding="0" cellspacing="0" class="c_table">
+                        <thead>
+                            <tr>
+                                <th>序号</th>
+                                <th align="left">&emsp;已选内容名称</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td align="center">1</td>
+                                <td>&emsp;标题1</td>
+                                <td align="center"><a href="#" class="form_del">删除</a></td>
+                            </tr>
+                            <tr>
+                                <td align="center">1</td>
+                                <td>&emsp;标题1</td>
+                                <td align="center"><a href="#" class="form_del">删除</a></td>
+                            </tr>
+                            <tr>
+                                <td align="center">1</td>
+                                <td>&emsp;标题1</td>
+                                <td align="center"><a href="#" class="form_del">删除</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      <!--       第二步完          -->  
+      <div class="buttonBox" style="margin-top:20px; margin-left:38%;margin-bottom:70px;">
+       		<input type="submit" id="subT" value="确 认" class="btn yellowBtn" name="" style="color:#fff">
+            <input type="button" name="" class="btn grayBtn" value="取 消">
+       </div>
+    </div>
+</div>
+<script>
+$(".form_add").click(function(){
+	var table_text='<tr><td width="28%"><span>&nbsp;字段名称：</span><div class="form_div"><input type="text" class="form_text" /></div></td><td width="26%"><span>&nbsp;字段类型：</span><div class="form_div"><select><option>选择类型</option><option>选择类型</option><option>选择类型</option><lect></div></td><td width="34%"><span>&nbsp;备选项：</span><div class="form_div"><input type="text" id="name" name="name" size="30" value="" class="tex" autocomplete="off"></div></td><td width="12%" align="center"><a href="#" class="form_del">删除</a></td></tr>';
+	var line = $(".active_table tr").length;
+	    line++;
+	if(line<=3){
+		$(".active_table").append(table_text).show();
+	}else{
+		alert("最多只能添加3次！");			
+	};
+	$(".form_del").click(function(){
+		$(this).parents("tr").remove();	
+	})	
+});
+$(".form_del").click(function(){
+		$(this).parents("tr").remove();	
+	})
+$(".check_show").click(function(){
+	$(".active_box").show();	
+})
+
+</script>
+
+</body>
+</html>
