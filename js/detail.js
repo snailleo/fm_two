@@ -1,4 +1,4 @@
-var audio = document.getElementById("myMusic");
+var audio = new Audio();
 
 $(function(){
     new FastClick(document.body);	
@@ -7,6 +7,38 @@ $(function(){
 		document.getElementById("audio_top").style.display = "none";	
 	}
 		
+	audio.src="http://http.hz.qingting.fm/60260.mp3";
+
+	audio.addEventListener('waiting',
+	function() {
+		console.log('waiting');$(".jiage").html("waiting");
+		//writeToLogger('waiting');
+		//playing = false;
+		//changeStat('load');
+	},false);
+	audio.addEventListener('playing',
+	function() {
+		console.log('play');$(".jiage").html("playing");
+		//writeToLogger('waiting');
+		//playing = false;
+		//changeStat('load');
+	},false);
+
+	audio.addEventListener('play',
+	function() {
+		console.log('play');$(".jiage").html("play");
+	},false);
+
+	audio.addEventListener('error',
+	function() {
+		console.log('play');$(".jiage").html("error");
+	},false);
+
+	audio.addEventListener('onloadeddata',
+	function() {
+		console.log('play');$(".jiage").html("onloadeddata");
+	},false);
+
 	var speed = 20;
 	var direction="left";
 	var tab = document.getElementById("txtBox");
@@ -35,7 +67,7 @@ $(function(){
 	if (txt1.offsetWidth > tab.offsetWidth) {
 		txt2.innerHTML = txt1.innerHTML;
 		var timer = setInterval(marquee,speed);
-		tab.onmouseover = function(){clearInterval(timer);};
+		tab.onmouseoutnmouseover = function(){clearInterval(timer);};
 		tab.onmouseout = function(){timer = setInterval(marquee,speed);}; 
 	}
 	
@@ -47,6 +79,7 @@ $(function(){
 			if (audio.src == "") {
 				//audio.src = Defaultsong
 			}
+			audio.load();
 			audio.play();	
 		}else{
 			$(this).removeClass("play").addClass("stop");
