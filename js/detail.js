@@ -12,16 +12,10 @@ $(function(){
 	audio.addEventListener('waiting',
 	function() {
 		console.log('waiting');$(".jiage").html("waiting");
-		//writeToLogger('waiting');
-		//playing = false;
-		//changeStat('load');
 	},false);
 	audio.addEventListener('playing',
 	function() {
 		console.log('play');$(".jiage").html("playing");
-		//writeToLogger('waiting');
-		//playing = false;
-		//changeStat('load');
 	},false);
 
 	audio.addEventListener('play',
@@ -52,6 +46,7 @@ $(function(){
 				}
 				else{
 					tab.scrollLeft++;
+					//console.log(tab.scrollLeft)
 				}
 			break;
 			case "right":

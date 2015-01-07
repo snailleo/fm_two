@@ -153,12 +153,12 @@ $(function(){
 <script src="js/load_app.js" type="text/javascript" ></script>
 <script>
 	//var lis_li=$(".list_parent li");
-	$(".list_parent li p").bind('click',function(){
-		var _this=$(this);
+	$(".list_parent").on("click",$(".list_parent li p"),function(e){
+		var _this=$(e.target);
 		var lis_span = _this.siblings("ol"),
 			lis_icon = _this.find("i");
 		lis_icon.toggleClass("icon_down");
-		lis_span.slideToggle(500);
+		lis_span.slideToggle(500); 
 	});
 
 	
