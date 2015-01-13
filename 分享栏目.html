@@ -25,6 +25,15 @@
                     	'<ol class="list_child">'+
                             '<li><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li></ol></li>';
 	$(".list_parent").html(_htm);
+    var lis_li=$(".list_parent li");
+    $(".list_parent li p").on("click",function(event){
+        console.log(1)
+        var _this=$(event.target);
+        var lis_span = _this.siblings("ol"),
+            lis_icon = _this.find("i");
+        lis_icon.toggleClass("icon_down");
+        lis_span.slideToggle(500); 
+    });
 })
  </script>
 <link rel="stylesheet" href="css/reset.css">
@@ -106,16 +115,8 @@
 <script src="js/audio.js" type="text/javascript" ></script>
 <script src="js/load_app.js" type="text/javascript" ></script>
 <script>
-	var lis_li=$(".list_parent li");
-	$(".list_parent").delegate(".list_parent li p","click",function(event){
-        console.log(1)
-		var _this=$(event.target);
-		var lis_span = _this.siblings("ol"),
-			lis_icon = _this.find("i");
-		lis_icon.toggleClass("icon_down");
-		lis_span.slideToggle(500); 
-	});
-    $(".list_parent").off('click',$(".list_child li"),fu());
+	
+   // $(".list_parent").off('click',$(".list_child li"),fu());
 
 	
 	$(".more_column").click(function(){

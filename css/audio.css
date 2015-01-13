@@ -135,8 +135,9 @@ padding-left:10px;color:#555;}
 .list_parent li a{color:#999;}
 .list_child li:first-child{border-top:1px solid #eee}
 .list_parent li:last-child{border:none;}
-.icon_true{background:url(../images/icon_true.png) no-repeat;position:absolute;right:0;top:15px;display:block;width:19px;height:28px;background-size:10px;}
-.icon_down{background:url(../images/icon_down.png) no-repeat;position:absolute;right:3px;top:15px;display:block;width:21px;height:10px;background-size:18px;}
+.icon_true{background:url(../images/icon_true.png) no-repeat;position:absolute;right:10px;top:15px;display:block;width:10px;height:16px;background-size:10px;-webkit-transition:-webkit-transform 0.3s;}
+/*.icon_down{background:url(../images/icon_down.png) no-repeat;position:absolute;right:3px;top:15px;display:block;width:21px;height:10px;background-size:18px;}*/
+.icon_down{-webkit-transform:rotate(-90deg);}
 #warp_program{position: absolute;
 top: 0;
 bottom: 0;
