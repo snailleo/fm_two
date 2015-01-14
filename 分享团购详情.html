@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>团购分享</title>
+<meta name="description" content="">
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1,minimum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+<script src="js/jquery.js" type="text/javascript" ></script>
+<script src="js/fastclick.js" type="text/javascript" ></script>
+<script src="js/iscroll.js" type="text/javascript" ></script>
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/share.css">
+<style>
+#warp_money{bottom:0;}
+</style>
+<script>
+var myscroll,myscroll2;
+function loaded(){
+	myscroll=new iScroll("warp_money",{
+		//bounce:false,
+		momentum:true,
+		//useTransform: false,
+		hScroll:true
+		
+	});
+	myscroll2=new iScroll("tan_w",{hScroll:false,bounce : false,checkDOMChanges:true});
+}
+window.addEventListener("DOMContentLoaded",loaded,false);
+
+</script>
+</head>
+
+<body>
+<audio id="myMusic" src="media/高考进行时.aac"> </audio>
+<input id="PauseTime"  type="hidden" />
+<div class="warp_money" id="warp_money">
+	<div class="scroll">
+    	<div class="audio_top" id="audio_top">
+        <span class="close" id="close"></span>
+        <div class="audio_load">
+            <span class="top_logo"><img src="images/a_logo.png" alt=""></span>
+            <h3>电台FM</h3>
+            <p>我发现一个很赞的电台</p>
+        </div>
+        <a href="#" class="free_load">免费下载</a>
+    </div>
+    <div class="marqe">
+    	<span class="stop" id="play"></span>
+        <div class="hotWordTxt" id="txtBox">
+	        <div class="hotWordWrap">
+	            <div id="txt1">
+		            <a href="#" target="_blank">陕西人民广播电台--文艺之声</a>
+	            </div>
+	            <div class="txtCopy" id="txtCopy"></div>
+            </div>
+	    </div>
+    </div>
+    
+        <section class="goods_pic">
+            <dl>
+                <dt><img src="images/t_pic03.png" height="160" width="100%" /></dt>
+                <dd>
+                    <ul>
+                        <li>
+                        	<span style="color:#ff5000;display:inline-block;float:left;font-size:22px;">¥69.00&nbsp;<a href="#">¥200.00</a></span>
+                            <span style="display:inline-block;float:right;font-size:12px;padding-right:5px;">人气:888&emsp;销量:2000&emsp;</span>
+                        </li>
+                        <li><h1>新款英伦风休闲字母印花圆领手工毛衣</h1><p>有效期：2014年12月12日</p></li>
+                        <li>距离开始时间
+                            <div class="end_time" id="endTime">
+                            <em>00</em>天<em>00</em>时<em>00</em>分<em>00</em>秒
+                        </div>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </section>
+        <section class="shop_center">
+            <h1>凤凰涅磐饰品店</h1>
+            <ul class="shop_ul">
+                <li><span class="m_icon1"></span><a href="#">北京市朝阳区朝阳区工体北路三里屯88号SOHO C座20层</a><i class="icon_true"></i></li>
+                <li><span class="m_icon2"></span><a href="#">010-82326986</a><i class="icon_true"></i></li>
+                <li><span class="m_icon3"></span>营业时间：早9点至晚11点</li>
+            </ul>
+        </section>
+        <section class="goods_information">
+            <h3 class="goods">商品详情</h3>
+            <dl class="goods_dl">
+                <dt>银监会批准三家民营银行筹建申请 腾讯讯，这三家民营银行分别是：腾主发起人在广东省深圳市设正泰、华峰</dt>
+                <dd><img src="images/t_pic02.png" width="100%" /></dd>
+            </dl>
+        </section>
+        <section class="goods_list">
+            <h1 class="g_like">猜你喜欢</h1>
+            <div class="doods_div">
+                <dl>
+                    <dt><img src="images/t_pic01.png" width="84" height="84"></dt>
+                    <dd>
+                        <h1>团购标题胡佳怡园专业代团购标题胡佳怡园专业代待业<span class="g_icon1"></span><em class="g_icon2"></em></h1>
+                        <ul><li><span>¥39.00&nbsp;<a href="#">¥90.00</a></span></li></ul>
+                        <p><em>人气:999</em><span>销量:999</span></p>
+                    </dd>       
+                </dl>
+                <dl>
+                    <dt><img src="images/t_pic01.png" width="84" height="84"></dt>
+                    <dd>
+                        <h1>团购标题胡佳怡园专业代<span class="g_icon1"></span><em class="g_icon2"></em></h1>
+                        <ul><li><span>¥39.00&nbsp;<a href="#">¥90.00</a></span></li></ul>
+                        <p><em>人气:999</em><span>销量:999</span></p>
+                    </dd>        
+                </dl>
+                <dl>
+                    <dt><img src="images/t_pic01.png" width="84" height="84"></dt>
+                    <dd>
+                        <h1>团购标题胡佳怡园专业代<span class="g_icon1"></span><em class="g_icon2"></em></h1>
+                        <ul><li><span>¥39.00&nbsp;<a href="#">¥90.00</a></span></li></ul>
+                        <p><em>人气:999</em><span>销量:999</span></p>
+                    </dd>        
+                </dl>
+                <dl style="border:none">
+                    <dt><img src="images/t_pic01.png" width="84" height="84"></dt>
+                    <dd>
+                        <h1>团购标题胡佳怡园专业代<span class="g_icon1"></span><em class="g_icon2"></em></h1>
+                        <ul><li><span>¥39.00&nbsp;<a href="#">¥90.00</a></span></li></ul>
+                        <p><em>人气:999</em><span>销量:999</span></p>
+                    </dd>        
+                </dl>
+            </div>
+        </section>
+        <footer class="detail_foot">
+            <a href="#" class="more_product">更多福利</a>
+            <a href="#" class="add_product">加入购物车</a>
+        </footer>
+    </div>
+</div>
+
+<div class="pop_content pop_program">
+    <div class="mpro_list tan_p" style="background:none;padding:0 20px;">
+        <h1 class="more_pro">更多商品<span class="laba">收听节目</span></h1>
+        <div id="tan_w" class="porductlist"> <div>
+        <dl onclick="window.location.href='/app/groups/groups!detail.do?id=a0ba22149ef50f942-7ffc'">
+            <dt><img src="http://192.168.0.87:80/uploadfile/upload/1fe177148638c181f-8000/goods_model_pic/img/2014-11-27/small/900fe05b-0021-49c6-8ba4-1ecc4f040e53.jpg" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+            <dd>
+                <p>变团购的到店产品测试<span class="g_icon1"></span><span class="g_icon2"></span></p>
+                <p>¥ 200.00</p>
+                <p>人气&nbsp;:&nbsp;15&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </dd>
+          </dl>
+            <dl onclick="window.location.href='/app/groups/groups!detail.do?id=bb6260149eb072286-7ffa'">
+            <dt><img src="http://192.168.0.87:80/uploadfile/upload/1fe177148638c181f-8000/goods_model_pic/img/2014-11-26/small/4216841a-ed3c-4b11-b8b9-8820a901e661.jpg" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+            <dd>
+                <p>变团购的产品测试<span class="g_icon1"></span></p>
+                <p>¥ 500.00</p>
+                <p>人气&nbsp;:&nbsp;18&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </dd>
+          </dl>
+            <dl onclick="window.location.href='/app/goods/goods!productDetail.do?goodsId=61e066149e5f84fea-8000'">
+            <dt><img src="http://192.168.0.87:80/uploadfile/upload/1fe177148638c181f-8000/goods_model_pic/img/2014-11-25/small/4acc33bb-a87c-481b-acad-26906b33d7de.jpg" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+            <dd>
+                <p>测试内容</p>
+                <p>¥ 500.00</p>            
+                <p>人气&nbsp;:&nbsp;115&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </dd>
+          </dl>   
+            <dl onclick="window.location.href='/app/goods/goods!productDetail.do?goodsId=ed1e31149e5bdbd80-8000'">
+            <dt><img src="/images/nodefault/160-160.png" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+            <dd>
+                <p>liuyang</p>
+                <p>¥ 0.00</p>
+                <p>人气&nbsp;:&nbsp;129&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </dd>
+          </dl>
+            <dl onclick="window.location.href='/app/goods/goods!productDetail.do?goodsId=ff3be5149ada2fe30-7fff'">
+            <dt><img src="/images/nodefault/160-160.png" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+            <dd>
+                <p>飞凤飞飞凤飞飞</p>
+                <p>¥ 123.00</p>
+                <p>人气&nbsp;:&nbsp;17&nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </dd>
+          </dl>
+          </div>
+        </div>
+        
+    </div>
+    <div class="download">
+        <input type="button" class="downloadBtn" value="收听更多节目,下载山东电台"><span class="icon_download"></span>
+    </div>
+</div>
+
+</body>
+<script src="js/timer.js"></script>
+<script>
+//设置开始时间
+times.init(1420000000000);
+</script>
+<script>
+$(function(){
+	new FastClick(document.body);	
+	var clo = document.getElementById("close");
+	clo.onclick = function(){
+		document.getElementById("audio_top").style.display = "none";	
+	}
+	
+	$("body").on("click",".masker",function(){
+		_pop1.style.display = "none";
+		var _mask = document.querySelector(".masker");
+		document.body.removeChild(_mask);
+	});
+	var _pop1 = document.querySelector(".pop_program");
+	document.querySelector(".more_product").onclick = function(){
+		var _htm = document.createElement("div");
+		_htm.className = "masker";
+		document.body.appendChild(_htm);
+		_pop1.style.display = "block";
+	};
+	$(".free_load").click(function(){
+		popWin("detail")	
+	})
+})
+document.body.addEventListener('touchmove', function(event) { 
+	event.preventDefault(); 
+}, false);
+</script>
+<script src="js/detail.js" type="text/javascript"></script>
+<script src="js/load_app.js" type="text/javascript" ></script>
+</html>
+

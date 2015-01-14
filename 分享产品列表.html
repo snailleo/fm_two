@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>分享产品列表</title>
+    <meta name="description" content="">
+<meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1,minimum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<meta name="format-detection" content="address=no">
+<script src="js/jquery.js" type="text/javascript" ></script>
+<script src="js/fastclick.js" type="text/javascript" ></script>
+<script src="js/iscroll.js" type="text/javascript" ></script>
+<script src="js/pop.js" type="text/javascript" ></script>
+
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/share.css">
+<script>
+var myscroll;
+$(function(){
+	$("#navlist li").on("click",function(){
+		var index = $(this).index(),
+		box = $(".sortBox .sort_pos").eq(index);
+		var f = $(this).find("em").hasClass("iconTop");
+		if(f){
+			box_hide();
+			
+		}else{
+			$(this).find("em").removeClass("iconDown").addClass("iconTop");
+	        $(this).find("i").removeClass("hide");
+	        $(this).siblings("li").find("em").addClass("iconDown").removeClass("iconTop");
+	        $(this).siblings("li").find("i").addClass("hide");
+	        box_show(box);
+	        mask();
+		}
+	});
+
+	$(".masker").click(function(){
+		box_hide();
+	});
+
+	var wrap = $(".wrap_list");
+	
+	function box_show(ele){
+		wrap.slideDown();
+		ele.removeClass("hide").siblings(".sort_pos").addClass("hide");
+	}
+
+	function box_hide(){
+		wrap.hide();
+		$("#navlist li").find("em").addClass("iconDown").removeClass("iconTop");
+		$("#navlist li").find("i").addClass("hide");
+		remask();
+	}
+
+	function mask(){
+		var _h = $(window).height();
+		$(".masker").removeClass("hide");
+		//$(".masker").css({height:_h});
+		$("body").addClass("filter_b").css({height:_h});
+		//$(".masks").addEventListener('touchstart', function (e) { e.preventDefault(); }, false);
+	}
+	
+	function remask(){
+		$(".masker").addClass("hide");
+		$("body").css({height:"auto"});
+	}
+
+	new FastClick(document.body);
+
+	$("body").on("click",function(){
+		$("#drop_down").removeClass("active");
+	});
+	
+})
+
+function showContentByLevel(gcId,level,obj){
+	$(obj).parent().find("li").removeClass("cur").removeClass("on");
+	$("ul").removeClass("cur");
+	$(obj).addClass("cur");
+    var nextLevel = "";
+    if("twoLevel"== level){
+    	nextLevel = "threeLevel";
+    	$("#threeLevel").addClass("hide");
+        }else{
+        	nextLevel = "twoLevel";
+        	$(".sort_one,.sort_two").css({width:"90px"});
+            }
+    var html ="";
+	$.get("${ctx}/app/goods/goods!getGoodsClassificationJSON.do?parentId="+gcId,function(data){
+		if(data.length>0){
+			html += "<li onclick='window.location.href=\"${ctx}/app/goods/goods.do?gcId="+gcId+"\"'><a>全部</a></li>";
+			for(var i=0;i<data.length;i++){
+				if("threeLevel" ==level){
+						html += "<li onclick='window.location.href=\"${ctx}/app/goods/goods.do?gcId="+data[i][0]+"\"'><a>"+data[i][1]+"</a></li>";
+					}else{
+						html += "<li onclick=\"showContentByLevel('"+data[i][0]+"','"+nextLevel+"',this)\"><a>"+data[i][1]+"</a></li>";
+					}
+				}
+			$("#"+level).find("ul").html(html);
+			$("#"+level).removeClass("hide");
+			$("#"+level).removeClass("hide");
+			}else{
+				window.location.href="${ctx}/app/goods/goods.do?gcId="+gcId;
+				}
+		});
+    }
+</script>
+</head>
+<body>
+<div class="sport_wrap" id="wrapper1">
+<div id="porduct">
+	<div class="audio_top" id="audio_top">
+        <span class="close" id="close"></span>
+        <div class="audio_load">
+            <span class="top_logo"><img src="images/a_logo.png" alt=""></span>
+            <h3>电台FM</h3>
+            <p>我发现一个很赞的电台</p>
+        </div>
+        <a href="#" class="free_load">免费下载</a>
+    </div>
+    <article id="navlist" class="topMenu">
+        <ul>
+           <li id="f_li">
+            <span>全部分类<em class="iconDown"></em></span>
+            <i class="hide"></i>
+          </li>
+           <li id="x_li">
+            <span>默认排序<em class="iconDown"></em></span>
+            <i class="hide"></i>
+          </li>
+        </ul>    
+    </article>
+    <div class="wrap_list wrapper2" id="wrapper2" style="display: none;">		  
+      <article class="sortBox">
+        <div class="sort_pos" id="types">  
+            <div class="sort_one" id="oneLevel" style="overflow: hidden;">    
+                <ul class="sort_ul" style="transition: transform 0ms; -webkit-transition: transform 0ms; transform-origin: 0px 0px 0px; transform: translate(0px, 0px) translateZ(0px);">
+                    
+                        <li onclick="window.location.href='/app/goods/goods.do'" class=""><a>全部</a></li>
+                        
+                            <li onclick="showContentByLevel('f0940e14862924440-8000','twoLevel',this)" class="cur"><a>化妆品名字很长很</a></li>
+                        
+                            <li onclick="showContentByLevel('a204f314862ad01e4-7ffe','twoLevel',this)"><a>护肤系列</a></li>
+                        
+                            <li onclick="showContentByLevel('7f6c7d14867d0c7cb-8000','twoLevel',this)"><a>洗衣液</a></li>
+                        
+                            <li onclick="showContentByLevel('de273b148a6282ae3-7f6b','twoLevel',this)"><a>test-01</a></li>
+                        
+                            <li onclick="showContentByLevel('391f70148a6282ae3-7f6a','twoLevel',this)"><a>test-02</a></li>
+                        
+                            <li onclick="showContentByLevel('be9949148a6282ae3-7f69','twoLevel',this)"><a>test-03</a></li>
+                        
+                            <li onclick="showContentByLevel('c60d7d148a6282ae3-7f68','twoLevel',this)"><a>test-04</a></li>
+                        
+                            <li onclick="showContentByLevel('9d1dd5148a6282ae3-7f63','twoLevel',this)"><a>tset-05</a></li>
+                        
+                            <li onclick="showContentByLevel('cbf458148a6282ae3-7f62','twoLevel',this)"><a>test-05</a></li>
+                        
+                            <li onclick="showContentByLevel('e36e57148a6282ae3-7f61','twoLevel',this)"><a>test-06</a></li>
+                        
+                            <li onclick="showContentByLevel('008be9148a6282ae3-7f54','twoLevel',this)"><a>test-07</a></li>
+                        
+                            <li onclick="showContentByLevel('c63783148a6282ae3-7f53','twoLevel',this)"><a>test-08</a></li>
+                        
+                            <li onclick="showContentByLevel('2b34fb148afbc62e0-7ff5','twoLevel',this)"><a>test072</a></li>
+                        
+                            <li onclick="showContentByLevel('759085148a6282ae3-7f52','twoLevel',this)"><a>test-09</a></li>
+                        
+                            <li onclick="showContentByLevel('5638e3148a6282ae3-7f51','twoLevel',this)"><a>test-10</a></li>
+                        
+                            <li onclick="showContentByLevel('a65c94148ac053d67-7f60','twoLevel',this)"><a>tttt</a></li>
+                        
+                    
+                </ul>
+            </div>
+            <div class="sort_two" id="twoLevel" style="overflow: hidden;">
+                <ul class="sort_chlid" style="transition: transform 0ms; -webkit-transition: transform 0ms; transform-origin: 0px 0px 0px; transform: translate(0px, 0px) translateZ(0px);"><li onclick="window.location.href=&quot;/app/goods/goods.do?gcId=f0940e14862924440-8000&quot;"><a>全部</a></li><li onclick="showContentByLevel('c500af14862ad01e4-7ffd','threeLevel',this)"><a>兰蔻化妆水很长哦</a></li><li onclick="showContentByLevel('bcd7ee14862ad01e4-8000','threeLevel',this)"><a>兰蔻</a></li><li onclick="showContentByLevel('9f214614877e1d38a-8000','threeLevel',this)"><a>兰芝</a></li></ul>
+            </div>
+            <div class="sort_three hide" id="threeLevel" style="overflow: hidden;">
+                <ul class="sort_chlids" style="transition: transform 0ms; -webkit-transition: transform 0ms; transform-origin: 0px 0px 0px; transform: translate(0px, 0px) translateZ(0px);">
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="sort_pos hide">
+            <ul class="sort_chlids list">
+                    <li class="on" onclick="toOrder('')"><a>默认排序</a></li>
+                    <li onclick="toOrder('sales')"><a>按销量</a></li>
+                    <li onclick="toOrder('hit')"><a>按人气</a></li>
+                    <li onclick="toOrder('price')"><a>按价格由高到低</a></li>
+                    <li onclick="toOrder('priceAsc')"><a>按价格由低到高</a></li>
+                </ul>
+        </div>
+      </article>
+     </div>
+    
+    <div id="porductlist" class="porductlist"> 
+	<dl onclick="window.location.href='/app/groups/groups!detail.do?id=a0ba22149ef50f942-7ffc'">
+        <dt><img src="http://192.168.0.87:80/uploadfile/upload/1fe177148638c181f-8000/goods_model_pic/img/2014-11-27/small/900fe05b-0021-49c6-8ba4-1ecc4f040e53.jpg" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+        <dd>
+            <p>变团购的到店产品测试<span class="g_icon1"></span><span class="g_icon2"></span></p>
+            <p>¥ 200.00</p>
+            <p>人气&nbsp;:&nbsp;15&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </dd>
+      </dl>
+        <dl onclick="window.location.href='/app/groups/groups!detail.do?id=bb6260149eb072286-7ffa'">
+        <dt><img src="http://192.168.0.87:80/uploadfile/upload/1fe177148638c181f-8000/goods_model_pic/img/2014-11-26/small/4216841a-ed3c-4b11-b8b9-8820a901e661.jpg" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+        <dd>
+            <p>变团购的产品测试<span class="g_icon1"></span></p>
+            <p>¥ 500.00</p>
+            <p>人气&nbsp;:&nbsp;18&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </dd>
+      </dl>
+        <dl onclick="window.location.href='/app/goods/goods!productDetail.do?goodsId=61e066149e5f84fea-8000'">
+        <dt><img src="http://192.168.0.87:80/uploadfile/upload/1fe177148638c181f-8000/goods_model_pic/img/2014-11-25/small/4acc33bb-a87c-481b-acad-26906b33d7de.jpg" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+        <dd>
+            <p>测试内容</p>
+            <p>¥ 500.00</p>            
+            <p>人气&nbsp;:&nbsp;115&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </dd>
+      </dl>   
+        <dl onclick="window.location.href='/app/goods/goods!productDetail.do?goodsId=ed1e31149e5bdbd80-8000'">
+        <dt><img src="/images/nodefault/160-160.png" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+        <dd>
+            <p>liuyang</p>
+            <p>¥ 0.00</p>
+            <p>人气&nbsp;:&nbsp;129&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </dd>
+      </dl>
+        <dl onclick="window.location.href='/app/goods/goods!productDetail.do?goodsId=ff3be5149ada2fe30-7fff'">
+        <dt><img src="/images/nodefault/160-160.png" width="80" onload="DrawImage(this,80,80)" onerror="javascript:this.src='/images/nodefault/160-160.png'" height="80"></dt>
+        <dd>
+            <p>飞凤飞飞凤飞飞</p>
+            <p>¥ 123.00</p>
+            <p>人气&nbsp;:&nbsp;17&nbsp;&nbsp;&nbsp;&nbsp;</p>
+        </dd>
+      </dl>
+      
+    </div>
+    <div id="pullUp" class="pullup">
+            <span class="pullIcon"></span>
+            <span class="la_more">上拉加载更多...</span>
+      </div>
+    <div class="masker hide"></div>
+    
+  
+</div>
+</div>
+
+</body>
+<script>
+/*var myscroll,scroll1,scroll2,scroll3; 
+function loaded(){
+	myscroll=new iScroll("sport_wrap",{
+		useTransition: true,
+		hScroll:false
+	});
+	
+	scroll1 = new iScroll('oneLevel',{hScroll:false,bounce : false,checkDOMChanges:true});
+	scroll2 = new iScroll('twoLevel',{hScroll:false,bounce : false,checkDOMChanges:true});
+	scroll3 = new iScroll('threeLevel',{hScroll:false,bounce : false,checkDOMChanges:true});
+}
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);
+
+
+
+var myScroll,
+	pullUpEl, pullUpOffset,
+	generatedCount = 0;
+
+//执行加载请求	
+function pullUpAction () {
+	setTimeout(function () {	
+		var el, li, i;
+		el = document.querySelector('.porductlist');
+		pullUpEl.className = 'pullup';
+		pullUpEl.querySelector('.la_more').innerHTML = '上拉加载更多...';
+
+		for (i=0; i<3; i++) {
+			li = document.createElement('li');
+			li.innerText = '行数' + (++generatedCount);
+			li.style.height = "50px";
+			el.appendChild(li);
+		}
+		
+		myScroll.refresh();		
+	}, 1000);	
+}
+
+function loaded() {
+	pullUpEl = document.getElementById('pullUp');	
+	pullUpOffset = pullUpEl.offsetHeight;	
+	
+	myScroll = new iScroll('wrapper1', {
+		useTransition: true,
+		hScroll:false,
+		onScrollMove: function () {
+			if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'flip';
+				pullUpEl.querySelector('.la_more').innerHTML = '松开加载更多...';
+				this.maxScrollY = this.maxScrollY;
+			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
+				pullUpEl.className = '';
+				pullUpEl.querySelector('.la_more').innerHTML = '上拉加载更多...';
+				this.maxScrollY = pullUpOffset;
+			} 
+		},
+		onScrollEnd: function () {
+			if (pullUpEl.className.match('flip')) {
+				pullUpEl.className = 'loading';
+				pullUpEl.querySelector('.la_more').innerHTML = '加载中...';				
+				pullUpAction();
+			}
+		}
+	});
+	
+	setTimeout(function () { document.getElementById('wrapper1').style.left = '0'; }, 800);
+	
+	var scroll1, scroll2, scroll3;
+	scroll1 = new iScroll('oneLevel',{hScroll:false,bounce : false,checkDOMChanges:true});
+	scroll2 = new iScroll('twoLevel',{hScroll:false,bounce : false,checkDOMChanges:true});
+	scroll3 = new iScroll('threeLevel',{hScroll:false,bounce : false,checkDOMChanges:true});
+}
+
+
+
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+
+document.addEventListener('DOMContentLoaded', function () { setTimeout(loaded, 200); }, false);*/
+</script>
+<script src="js/list_loadmore.js" type="text/javascript" ></script>
+<script src="js/load_app.js" type="text/javascript" ></script>
+</html>
