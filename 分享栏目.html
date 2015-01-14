@@ -85,9 +85,9 @@ $(function(){
                 <li><p><a href="#">2014-07</a><i class="icon_true"></i></p>
                 	
                     	<ol class="list_child">
-                            <li SongUrl="media/高考进行时.aac"><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li>
-                            <li SongUrl="media/高考进行时.aac"><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li>
-                            <li SongUrl="media/高考进行时.aac"><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li>
+                            <li SongUrl="media/高考进行时1.aac"><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li>
+                            <li SongUrl="media/高考进行时1.aac"><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li>
+                            <li SongUrl="media/高考进行时1.aac"><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li>
                             <li><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li>
                             <li><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li>
                             <li><span>07-07</span><a href="#">佳作欣赏电影海报设计</a></li>
@@ -174,16 +174,18 @@ $(function(){
 			$(".columnBOx p").css({"height":"60px","-webkit-line-clamp":"3"});	
 		}
 	})
-	
+	var bo_box = document.getElementsByClassName("bo_box")[0];
 	$(".list_child li").on('click',function(){
         $(".list_child li").removeClass('on');
 		var _box = $(".MusicBox"),
-		flag = _box.hasClass("on");
-        var _w = document.body.clientWidth;
+		flag = _box.hasClass("on"),
+        _w = document.body.clientWidth;
+        
 		if(!flag){
 			_box.addClass("on");
-			document.getElementsByClassName("bo_box")[0].style.webkitTransform = 'translate3d(-'+ _w +'px, 0 , 0)';
-            console.log(_w)
+			bo_box.style.webkitTransform = 'translate3d(-'+ _w +'px, 0 , 0)';
+            document.getElementsByClassName("share_column")[0].style.height = "240px";
+            
 		}	
 		var _this = $(this);
 		Play(_this);
@@ -192,7 +194,8 @@ $(function(){
 
 	$('.see_lanm').on("click",function(){
 		$(".MusicBox").removeClass("on");
-		document.getElementsByClassName("bo_box")[0].style.webkitTransform = 'translate3d(0, 0 , 0)';
+		bo_box.style.webkitTransform = 'translate3d(0, 0 , 0)';
+        document.getElementsByClassName("share_column")[0].style.height = "auto";
 		Pause();
 	})
 	
