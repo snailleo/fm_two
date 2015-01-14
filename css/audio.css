@@ -186,3 +186,4 @@ overflow: auto!important;}
 .top_logo{position:absolute;top:9px;left:25px;}
 .top_logo img{width:40px;height:40px;}
 
+.bo_box{display:-webkit-box;-webkit-transition:-webkit-transform 1s;}

@@ -22,7 +22,7 @@ $(document).ready(function () {
         	audio.pause();
 		}
 	})
-	alert(audio.autoplay)
+	//alert(audio.autoplay)
     $(".ProcessControl").click(function (e) {
 
         CurrentProces = e.clientX - ps;
