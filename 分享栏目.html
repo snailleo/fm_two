@@ -176,6 +176,7 @@ $(function(){
 	})
 	var bo_box = document.getElementsByClassName("bo_box")[0];
 	$(".list_child li").on('click',function(){
+        $("body").animate({scrollTop:"0px"},300);
         $(".list_child li").removeClass('on');
 		var _box = $(".MusicBox"),
 		flag = _box.hasClass("on"),

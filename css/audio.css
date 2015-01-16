@@ -116,7 +116,7 @@
 
 
 /*分享主播*/
-.host_content{width:100%; position:relative;}
+.host_content{width:100%; position:relative;overflow:hidden;}
 .host_introduction{padding:20px 10px;}
 .host_introduction dl{}
 .host_introduction dt{width:65px;height:65px;margin-right:18px;float:left;}
@@ -160,6 +160,7 @@ overflow: auto!important;}
 .share_column dl dd p{padding-top:3px;color:#9f9f9f;font-size:14px;line-height:23px;}
 .share_column dl dd p a{color:#2f88f0;padding-right:10px;}
 .programBOx{height:250px;}
+.programBOx.act{display:block;-webkit-animation-name:fadein;-webkit-animation-duration:.5s;-webkit-animation-timing-function:linear;}
 .host_introduction dd p a{color:#2f88f0;}
 .columnBOx{padding:15px 0;position:relative;}
 .columnBOx p{color:#999;font-size:14px;word-break: break-all;word-wrap: break-word;overflow: hidden;text-overflow: ellipsis;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;line-height:20px;height:60px;}
@@ -187,3 +188,12 @@ overflow: auto!important;}
 .top_logo img{width:40px;height:40px;}
 
 .bo_box{display:-webkit-box;-webkit-transition:-webkit-transform 0.6s;}
+
+@-webkit-keyframes loading {
+    from { -webkit-transform:rotate(0deg) translateZ(0); }
+    to { -webkit-transform:rotate(360deg) translateZ(0); }
+}
+@-webkit-keyframes fadein {
+    from {opacity:0; }
+    to {opacity:1; }
+}
