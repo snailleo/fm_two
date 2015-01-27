@@ -1,4 +1,4 @@
-﻿var audio = document.getElementById("myMusic"),
+﻿var audio = new Audio(),
 p = $(".Process").offset(),
 ps = p.left,
 pl = $(".Process").width();

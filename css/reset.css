@@ -28,6 +28,5 @@ img{vertical-align:middle;border:0}
 .clearb:after{display:block;font-size:0;content:" ";clear:both;height:0}
 .clearb{zoom:1}
 .hide{display:none!important;}
-.masker{position:absolute;top:0;left:0;width:100%;background:#000;opacity:.5;z-index:999;height:9999px}
 
 

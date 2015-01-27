@@ -7,13 +7,21 @@ $(function(){
 	}
 	var _pop = document.querySelector(".pop_content");
 	if(document.querySelector(".main_bo a")){
-	document.querySelector(".main_bo a").onclick = function(){
-		var _htm = document.createElement("div");
-		_htm.className = "masker";
-		document.body.appendChild(_htm);
-		_pop.style.display = "block";
-	};
+		document.querySelector(".main_bo a").onclick = function(){
+			var _htm = document.createElement("div");
+			_htm.className = "masker";
+			_htm.style.backgroundColor = "rgba(0, 0, 0, 0)";
+			_htm.style.display = "block";
+			document.body.appendChild(_htm);
+			//_htm.style.backgroundColor = "rgba(0, 0, 0, 0.498039)";
+			setTimeout(function(){_htm.style.backgroundColor = "rgba(0, 0, 0, .5)";})
+			
+			_pop.style.display = "block";
+		};
 	}
+	document.getElementsByClassName("pop_view")[0].addEventListener("click",function(){
+		document.getElementsByClassName("masker")[0].style.backgroundColor = "rgba(0, 0, 0, 0)";
+	},false);
 	$("body").on("click",".masker",function(){
 		_pop.style.display = "none";
 		var _mask = document.querySelector(".masker");
