@@ -183,3 +183,9 @@ border: 1px solid #BFBFBF;background: #fff;text-align: center;-webkit-border-rad
 .form_mark{height:44px;background:#333;opacity:.7;line-height:44px;text-align:center;color:#f00;position:absolute;top:0;width:100%;left:0;z-index:1;}
 .f_icon4{vertical-align:1px;padding-right:5px;}
 .form_list dl dd input.red{border:1px solid #f00;-webkit-border-radius:5px;background:#fff;display:-webkit-box;-webkit-box-align:center;width:87%;margin:5px 0;color:#f00;padding:0 10px;}
+
+.sh_head{height:42px;line-height:42px;background: #ff5000;z-index: 999;position: relative;}
+.pic_list{padding:10px;}
+.pic_list li{float:left;}
+.pic_list li img{width:76px;height:76px;margin-right:5px;}
+.outer{width:100%;height:100%;background:#333;position:absolute;top:0;left:0;z-index:999;}
