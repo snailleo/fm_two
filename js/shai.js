@@ -63,7 +63,7 @@ SH.util = {
                     '</ul>'
 				el.appendChild(li);
 			}
-			SH.init.scr.refresh();	
+			SH.init.src.refresh();	
 			SH.util.liTop();	
 		}, 1000);	
 	},
@@ -112,13 +112,13 @@ SH.util = {
 	}
 }
 
-SH.init = function(){
-	SH.util.myscroll();
+SH.init = {
+	src:SH.util.myscroll()
 
 	//show :
 }
 ;(function(){
-	SH.init();
+	SH.init.src;
 	SH.util.liTop();
 	$(document).on('click','.pic_list li',function(){
 		//var index = $(this).index();
