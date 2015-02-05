@@ -1,4 +1,6 @@
+//var audio = new Audio('media/情歌.mp3');
 var audio = document.getElementById("myMusic");
+console.log(audio.src)
 
 $(function(){
     new FastClick(document.body);	
